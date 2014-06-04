@@ -95,6 +95,11 @@
 #define AID_NET_BT_STACK  3008  /* bluetooth: access config files */
 
 #define AID_EVERYBODY     9997  /* shared between all apps in the same profile */
+#ifdef MTK_G_MT6589
+#define AID_CCCI          9996
+#define AID_NVRAM         9997
+#endif
+
 #define AID_MISC          9998  /* access to misc storage */
 #define AID_NOBODY        9999
 
@@ -171,6 +176,12 @@ static const struct android_id_info android_ids[] = {
     { "net_bt_stack",  AID_NET_BT_STACK, },
 
     { "everybody",     AID_EVERYBODY, },
+    { "qcom_oncrpc",   AID_QCOM_ONCRPC, },
+    { "qcom_diag",     AID_QCOM_DIAG, },
+#ifdef MTK_G_MT6589
+    { "ccci",          AID_CCCI, },
+    { "nvram",         AID_NVRAM, },
+#endif
     { "misc",          AID_MISC, },
     { "nobody",        AID_NOBODY, },
 };
