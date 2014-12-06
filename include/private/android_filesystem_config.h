@@ -176,8 +176,6 @@ static const struct android_id_info android_ids[] = {
     { "net_bt_stack",  AID_NET_BT_STACK, },
 
     { "everybody",     AID_EVERYBODY, },
-    { "qcom_oncrpc",   AID_QCOM_ONCRPC, },
-    { "qcom_diag",     AID_QCOM_DIAG, },
 #ifdef MTK_G_MT6589
     { "ccci",          AID_CCCI, },
     { "nvram",         AID_NVRAM, },

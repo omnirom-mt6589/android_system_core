@@ -76,8 +76,7 @@ include $(BUILD_HOST_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := liblog
 LOCAL_SRC_FILES := $(liblog_target_sources)
-LOCAL_CFLAGS := -Werror
-LOCAL_SRC_FILES := $(liblog_sources)
+#LOCAL_CFLAGS := -Werror
 ifeq ($(TARGET_BOARD_PLATFORM),mt6589)
 LOCAL_CFLAGS += -DMTK_MT6589
 endif
@@ -86,7 +85,7 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := liblog
 LOCAL_WHOLE_STATIC_LIBRARIES := liblog
-LOCAL_CFLAGS := -Werror
+#LOCAL_CFLAGS := -Werror
 include $(BUILD_SHARED_LIBRARY)
 
 include $(call first-makefiles-under,$(LOCAL_PATH))

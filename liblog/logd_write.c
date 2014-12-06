@@ -200,12 +200,12 @@ static int __write_to_log_kernel(log_id_t log_id, struct iovec *vec, size_t nr)
      *  };
      */
 
-    clock_gettime(CLOCK_REALTIME, &ts);
+    //clock_gettime(CLOCK_REALTIME, &ts);
     realtime_ts.tv_sec = ts.tv_sec;
     realtime_ts.tv_nsec = ts.tv_nsec;
 
     log_id_buf = log_id;
-    tid = gettid();
+    //tid = gettid();
 
     newVec[0].iov_base   = (unsigned char *) &log_id_buf;
     newVec[0].iov_len    = sizeof_log_id_t;
@@ -418,24 +418,24 @@ int __android_log_buf_print(int bufID, int prio, const char *tag, const char *fm
     return __android_log_buf_write(bufID, prio, tag, buf);
 }
 
-#ifdef MTK_MT6589
-struct xlog_record {
-        const char *tag_str;
-        const char *fmt_str;
-        int prio;
-};
-
-int __xlog_buf_printf(int bufid, const struct xlog_record *rec, ...)
-{
-    va_list ap;
-    char buf[LOG_BUF_SIZE];
-
-    va_start(ap, rec->fmt_str);
-    vsnprintf(buf, LOG_BUF_SIZE, rec->fmt_str, ap);
-    va_end(ap);
-
-    return __android_log_buf_write(bufid, rec->prio, rec->tag_str, buf);
-}
+#ifdef MTK_MT6589	
+struct xlog_record {	
+        const char *tag_str;	
+        const char *fmt_str;	
+	int prio;	
+};	
+				
+int __xlog_buf_printf(int bufid, const struct xlog_record *rec, ...)	
+{	
+    va_list ap;	
+    char buf[LOG_BUF_SIZE];	
+				
+    va_start(ap, rec->fmt_str);	
+    vsnprintf(buf, LOG_BUF_SIZE, rec->fmt_str, ap);	
+    va_end(ap);	
+				
+    return __android_log_buf_write(bufid, rec->prio, rec->tag_str, buf);	
+}	
 #endif
 
 void __android_log_assert(const char *cond, const char *tag,

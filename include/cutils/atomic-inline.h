@@ -39,9 +39,9 @@ extern "C" {
  *   on SMP systems emits an appropriate instruction.
  */
 
-#if !defined(ANDROID_SMP)
-# error "Must define ANDROID_SMP before including atomic-inline.h"
-#endif
+//#if !defined(ANDROID_SMP)
+//# error "Must define ANDROID_SMP before including atomic-inline.h"
+//#endif
 
 #if defined(__aarch64__)
 #include <cutils/atomic-arm64.h>
